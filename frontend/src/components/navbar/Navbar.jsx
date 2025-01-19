@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router";
-
+import { FaHeart } from "react-icons/fa";
+import { SlBasket } from "react-icons/sl";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const { basket } = useSelector((state) => state.basket);
+  const totalCount = basket.reduce((acc, item) => acc + item.count, 0);
   return (
     <div>
       <div className="navbar-container">
@@ -34,10 +38,15 @@ const Navbar = () => {
             <Link to="/admin">Admin</Link>
           </div>
           <div className="navList-item">
-            <Link to="/wishlist">Wishlist</Link>
+            <Link to="/wishlist">
+              <FaHeart />
+            </Link>
           </div>
           <div className="navList-item">
-            <Link to="/basket">Basket</Link>
+            <Link to="/basket">
+              <SlBasket />
+              <sup>{totalCount}</sup>
+            </Link>
           </div>
         </ul>
       </div>

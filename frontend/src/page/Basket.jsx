@@ -1,5 +1,5 @@
 import React from "react";
-// import "./Basket.scss";
+import "./Basket.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { deleteBasket, minusBtn, plusBtn } from "../redux/features/Basket";
